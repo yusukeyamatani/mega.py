@@ -217,7 +217,7 @@ class Mega(object):
             if foldername != '':
                 for file in files.iteritems():
                     if file[1]['a'] and file[1]['t'] and \
-                            file[1]['a']['n'] == foldername:
+                            isinstance(file[1]['a'], dict) and file[1]['a'].get('n') == foldername:
                         if parent_desc == file[1]['p']:
                             parent_desc = file[0]
                             found = True
